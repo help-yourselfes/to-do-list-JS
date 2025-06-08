@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <script defer src="ui.js"></script>
+    <script defer src="task.js"></script>
+    <script defer src="Main.js"></script>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="hide">
+        <template id="close-icon">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960">
+                <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+        </template>
+        <template id="confirm-icon">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960">
+                <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+            </svg>
+        </template>
+        <template id="check-icon">
+            <svg height="24px" viewBox="0 -960 960 960" width="24px" version="1.1" id="check" fill="#e3e3e3"
+                xmlns="http://www.w3.">
+                <path
+                    d="m 480.00002,-906.80438 c 236.44962,0 426.80438,190.35475 426.80438,426.80438 0,236.44963 -190.35476,426.804382 -426.80438,426.804382 -236.44963,0 -426.804387,-190.354752 -426.804387,-426.804382 0,-236.44963 190.354757,-426.80438 426.804387,-426.80438 z"
+                    id="box-inside" />
+                <path
+                    d="M 480,-946.80469 C 222.08257,-946.80469 13.195313,-737.91743 13.195313,-480 13.195313,-222.08257 222.08257,-13.195312 480,-13.195313 737.91742,-13.195312 946.80469,-222.08257 946.80469,-480 946.80469,-737.91743 737.91742,-946.80469 480,-946.80469 Z m 0,80 c 214.98135,0 386.80469,171.82333 386.80469,386.80469 0,214.98136 -171.82334,386.804688 -386.80469,386.804688 C 265.01864,-93.195312 93.195313,-265.01864 93.195312,-480 93.195313,-694.98136 265.01864,-866.80469 480,-866.80469 Z"
+                    id="box-outside" />
+                <path d="M400-304 240-464l56-56 104 104 264-264 56 56-320 320Z" id="icon" />
+            </svg>
+        </template>
+        <template id="dropdown-arrow-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                id="dropdown-arrow">
+                <path d="M480-360 280-560h400L480-360Z" />
+            </svg>
+        </template>
+        <template id="regular-task">
+            <div class="task object">
+                <div class="head">
+                    <button class="progress">
+
+                    </button>
+                    <span class="title"></span>
+                    <button class="action"></button>
+                </div>
+                <div class="body">
+                    <span class="description"></span>
+                </div>
+            </div>
+        </template>
+        <template id="collapsed-category">
+            <button class="collapsed-category">
+                <span class="title"></span>
+            </button>
+        </template>
+        <template id="category">
+            <div class="category object">
+                <div class="head">
+                    <div class="icon"></div>
+                    <span class="title"></span>
+                    <button class="action"></button>
+                </div>
+                <div class="body">
+
+                </div>
+            </div>
+        </template>
+        <template id="category-select-option">
+            <option class="option">
+            </option>
+        </template>
+    </div>
+    <div id="app">
+
+        <div id="content"></div>
+        <div id="actions">
+            <div class="top">
+                <p>Create new</p>
+                <div id="type-selection">
+                    <button onclick="UI.selectConstructor('taskConstructor')" class="type-selector"
+                        id="task-constructor-selection">Task</button>
+                    <button onclick="UI.selectConstructor('categoryConstructor')" class="type-selector"
+                        id="category-constructor-selection">Category</button>
+                </div>
+                <div id="task-constructor" class="constructor hide">
+                    <select id="category-select"></select>
+                    <input id="task-title" placeholder="Title">
+                    <textarea id="task-description" placeholder="Description"></textarea>
+                    <button id="create-task-button" class="create-button">Create task</button>
+                </div>
+                <div id="category-constructor" class="constructor hide">
+                    <input id="category-title" placeholder="Title">
+                    <button id="create-category-button" class="create-button">Create category</button>
+                </div>
+                <div id="destructor">
+                    <button id="cancel-deletion"></button>
+                    <button id="start-deletion">
+                        <span class="title">Delete</span>
+                        <span class="hint">Tap to select</span>
+
+                    </button>
+                    <button id="confirm-deletion"></button>
+                </div>
+            </div>
+            <div class="bottom">
+
+                <p>Collapsed categories:</p>
+                <div id="collapsed-categories">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
